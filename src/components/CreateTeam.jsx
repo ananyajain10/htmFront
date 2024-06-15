@@ -35,10 +35,10 @@ const CreateTeam = () => {
            },
            body: JSON.stringify(userData)
           });
-
-       if(!Response.ok){
-        throw new Error(`api request failed", ${response.status}`);
-       }
+          console.log(JSON.stringify(userData));
+      //  if(!Response.ok){
+      //   throw new Error(`api request failed", ${response.message}`);
+      //  }
 
        const data = await response.json();
 
@@ -52,7 +52,7 @@ const CreateTeam = () => {
        } catch (error) {
         console.error('Error creating team:', error);
         setErrorMessage(error.message);
-
+   
      } finally{
       setIsSubmitting(false);
      }
@@ -119,7 +119,7 @@ const CreateTeam = () => {
             htmlFor="university"
             className="block text-sm font-medium text-gray-700"
           >
-            University (Optional)
+            University
           </label>
           <input
             type="text"

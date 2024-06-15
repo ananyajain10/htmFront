@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const JoinTeam = () => {
   const [teamCode, setTeamCode] = useState('');
@@ -22,6 +22,7 @@ const JoinTeam = () => {
 
       
     };
+    
     event.preventDefault();
     setIsSubmitting(true);
     setErrorMessage(null);
@@ -35,13 +36,14 @@ const JoinTeam = () => {
         body: JSON.stringify(userData)
        });
     
-    if(!Response.ok){
-      throw new Error(`api request failed", ${response.status}`);
-    }
+    // if(!Response.ok){
+    //   throw new Error(`api request failed", ${response.message}`);
+    // }
 
     const data = await response.json();
+    console.log(data);
     
-    setTeamName('');
+    setTeamCode('');
     setFullName('');
     setEmail('');
     setUniversity('');
@@ -57,7 +59,7 @@ const JoinTeam = () => {
 
     <div className="bg-gray-100 p-10 rounded-md shadow-md mt-10">
       <h1 className="text-2xl font-bold text-purple mb-5">Join Team</h1>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         
         <div className="mb-3">
           <label
@@ -112,7 +114,7 @@ const JoinTeam = () => {
             htmlFor="university"
             className="block text-sm font-medium text-gray-700"
           >
-            University (Optional)
+            University 
           </label>
           <input
             type="text"
