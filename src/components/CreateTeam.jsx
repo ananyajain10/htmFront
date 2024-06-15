@@ -28,13 +28,13 @@ const CreateTeam = () => {
        setErrorMessage(null);
     
        try{
-        const response = await fetch('http://localhost:3000/registerTeam/createTeam',{
+        const response = await fetch('https://hackteamapi.onrender.com/registerTeam/createTeam',{
            method:"POST",
            headers:{
             "Content-Type":"application/json",
            },
            body: JSON.stringify(userData)
-          });
+          });/*  */
           console.log(JSON.stringify(userData));
       //  if(!Response.ok){
       //   throw new Error(`api request failed", ${response.message}`);

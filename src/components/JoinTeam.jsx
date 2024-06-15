@@ -28,7 +28,7 @@ const JoinTeam = () => {
     setErrorMessage(null);
     
     try{
-      const response = await fetch('http://localhost:3000/registerTeam/joinTeam',{
+      const response = await fetch('https://hackteamapi.onrender.com/registerTeam/joinTeam',{
         method:"POST",
         headers:{
          "Content-Type":"application/json",
